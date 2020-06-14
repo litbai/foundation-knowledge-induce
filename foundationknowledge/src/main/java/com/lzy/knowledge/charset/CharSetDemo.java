@@ -18,6 +18,16 @@ public class CharSetDemo {
     private static final int MASK = 0X01;
 
     public static void main(String[] args) throws Exception{
+        String s = "🔑😆";
+        int len = s.length();
+        for (int i = 0; i < len; i++) {
+            int codePoint = s.codePointAt(i);
+            System.out.println(i + ": " + codePoint);
+            if (Character.isSupplementaryCodePoint(codePoint)) {
+                i++;
+            }
+        }
+        System.out.println(s.toString());
     }
 
     /**
